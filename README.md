@@ -1,0 +1,1 @@
+# simocoloweb-static
