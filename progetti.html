@@ -20,7 +20,6 @@
       align-items: center;
       background-color: #0a0f2c;
       padding: 15px 30px;
-      font-family: 'Segoe UI', sans-serif;
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -36,15 +35,6 @@
 
     nav a:hover {
       color: #ffa726;
-    }
-
-    nav .left a {
-      font-size: 1.2em;
-    }
-
-    nav .right {
-      display: flex;
-      gap: 10px;
     }
 
     .container {
@@ -111,6 +101,77 @@
       background-color: white;
       color: #ff6f00;
     }
+
+    .flipper-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .mini-slider {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 111, 0, 0.3);
+      flex-shrink: 0;
+    }
+
+    .mini-slider .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      height: 100%;
+    }
+
+    .mini-slider .slides img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      flex-shrink: 0;
+      border-radius: 10px;
+      background-color: #0a0a23;
+    }
+
+    .mini-slider .controls {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 10px;
+    }
+
+    .mini-slider .controls button {
+      background-color: rgba(0, 0, 0, 0.6);
+      border: none;
+      color: #ffcc00;
+      font-size: 1.4em;
+      padding: 6px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .flipper-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .mini-slider {
+        width: 100%;
+        height: auto;
+      }
+
+      .mini-slider .slides img {
+        height: auto;
+      }
+    }
   </style>
 </head>
 <body>
@@ -137,8 +198,18 @@
 
     <!-- Progetto 1 -->
     <div class="project-card">
-      <div class="project-title">Smart Bin</div>
-      <div class="project-desc">Un cestino intelligente che riconosce i rifiuti e li smista automaticamente per migliorare la raccolta differenziata.</div>
+      <div class="project-title">Simocoloweb</div>
+      <div class="project-desc">Il mio sito personale creato da zero con HTML, CSS e JavaScript. Include pagine come Home, Who Am I, Progetti, USA, Curriculum e Contatti.</div>
+      <details style="margin-top: 15px;">
+        <summary style="cursor: pointer; font-weight: bold; color: #ffa726;">📘 Cosa ho imparato</summary>
+        <ul style="margin-top: 10px; padding-left: 20px; color: #ffd699;">
+          <li>Struttura semantica con &lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;footer&gt;</li>
+          <li>Stilizzazione avanzata con CSS: gradienti, navbar fissa, hover effects</li>
+          <li>Responsive design con viewport e layout flessibili</li>
+          <li>Interattività con JavaScript: valutazioni, fetch API, DOM manipulation</li>
+          <li>Organizzazione del progetto con cartelle CSS, SVG, e file come index.html, style.css, package.json</li>
+        </ul>
+      </details>
       <label>Valutazione:</label>
       <div class="stars">
         <span data-value="1">☆</span>
@@ -152,8 +223,36 @@
 
     <!-- Progetto 2 -->
     <div class="project-card">
-      <div class="project-title">EcoCharge</div>
-      <div class="project-desc">Una stazione di ricarica solare portatile per dispositivi mobili, pensata per ambienti outdoor e emergenze.</div>
+      <div class="flipper-header">
+        <div class="project-title">Flipper Zero con Bruce ed ESP32</div>
+        <div class="mini-slider">
+          <div class="slides" id="flipper-slides">
+            <img src="im1.png" alt="Foto 1" />
+            <img src="im2.png" alt="Foto 2" />
+            <img src="im3.png" alt="Foto 3" />
+            <img src="im4.png" alt="Foto 4" />
+            <img src="im5.png" alt="Foto 5" />
+            <img src="im6.png" alt="Foto 6" />
+          </div>
+          <div class="controls">
+            <button id="flipper-prev">⏪</button>
+            <button id="flipper-next">⏩</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-desc">Un dispositivo didattico e diagnostico basato su ESP32, ispirato al Flipper Zero, con funzionalità avanzate per reti, RF, IR, BLE e debug elettronico.</div>
+      <details style="margin-top: 15px;">
+        <summary style="cursor: pointer; font-weight: bold; color: #ffa726;">🧠 Funzionalità integrate</summary>
+        <ul style="margin-top: 10px; padding-left: 20px; color: #ffd699;">
+          <li>🔹 WiFi / Reti: Scanner SSID, test copertura, congestione canali, sniffer base, ping monitor, ARP scan, logger uptime</li>
+          <li>🔹 RF / NFC / RFID: Lettura/scrittura/emulazione tag, analisi segnale RF</li>
+          <li>🔹 Infrarossi: Telecomando universale, test sensori IR, analisi protocolli</li>
+          <li>🔹 Bluetooth / BLE: Scanner BLE, test segnale, eventi beacon, connessione a periferiche</li>
+          <li>🔹 GPIO / Debug: Multimetro base, tester continuità, oscilloscopio logico, controllo servo/relay/LED, generatore segnali</li>
+          <li>🔹 Extra: Datalogger, giochi didattici, agenda elettronica, QR Code display, contatore Geiger</li>
+        </ul>
+      </details>
       <label>Valutazione:</label>
       <div class="stars">
         <span data-value="1">☆</span>
@@ -181,6 +280,7 @@
     </div>
   </div>
 
+  <!-- Script valutazione + slider Flipper -->
   <script>
     const scriptURL = "https://script.google.com/macros/s/AKfycbyd-w4ny4CS_g08RWTMk2CbJLcSI948rSc1fKsxiV4IhpJvbG7Vz61mNlgdLPZPnkF-yA/exec";
 
@@ -219,6 +319,30 @@
           });
       });
     });
+
+    // Slider fotografico Flipper Zero
+    const flipperSlides = document.getElementById('flipper-slides');
+    const totalFlipperSlides = flipperSlides.querySelectorAll('img').length;
+    let flipperIndex = 0;
+
+    function showFlipperSlide(i) {
+      flipperSlides.style.transform = `translateX(-${i * 100}%)`;
+    }
+
+    document.getElementById('flipper-next').addEventListener('click', () => {
+      flipperIndex = (flipperIndex + 1) % totalFlipperSlides;
+      showFlipperSlide(flipperIndex);
+    });
+
+    document.getElementById('flipper-prev').addEventListener('click', () => {
+      flipperIndex = (flipperIndex - 1 + totalFlipperSlides) % totalFlipperSlides;
+      showFlipperSlide(flipperIndex);
+    });
+
+    setInterval(() => {
+      flipperIndex = (flipperIndex + 1) % totalFlipperSlides;
+      showFlipperSlide(flipperIndex);
+    }, 3000);
   </script>
 </body>
 </html>
