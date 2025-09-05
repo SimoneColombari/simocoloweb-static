@@ -118,5 +118,21 @@
     <a href="https://drive.google.com/uc?export=download&id=1ur6JB0Z1mRpdKWD-vJMcAh1yE6e5yN6R" class="download-button">⬇️ Scarica il PDF</a>
     <a href="index.html" class="home-button">🏠 Torna alla Home</a>
   </main>
+  <script>
+  // Ottieni il nome del file corrente
+  const currentPage = window.location.pathname.split("/").pop();
+
+  // Se siamo in curriculum.html
+  if (currentPage === "curriculum.html") {
+    // Nascondi il link Home
+    const homeLink = document.querySelector("nav .left a[href='index.html']");
+    if (homeLink) homeLink.style.display = "none";
+
+    // Nascondi il link Curriculum
+    const curriculumLink = document.querySelector("nav .right a[href='curriculum.html']");
+    if (curriculumLink) curriculumLink.style.display = "none";
+  }
+</script>
+
 </body>
 </html>
