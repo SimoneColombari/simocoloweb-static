@@ -175,6 +175,13 @@
   </style>
 </head>
 <body>
+  <!-- Pulsante personalizzato per traduzione -->
+<div id="translate-container">
+  <button id="translate-button">🌐 Language</button>
+</div>
+<div id="google_translate_element" style="display: none;"></div>
+
+
   <nav>
     <div class="right">
       <a href="progetti.html">Progetti</a>
@@ -219,5 +226,26 @@
       <a href="curriculum.html" class="cta-button">Curriculum</a>
     </div>
   </footer>
+  <script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'it',
+      includedLanguages: 'en',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+  // Funzione per forzare la traduzione in inglese
+  document.getElementById('translate-button').addEventListener('click', function () {
+    var select = document.querySelector('.goog-te-combo');
+    if (select) {
+      select.value = 'en';
+      select.dispatchEvent(new Event('change'));
+    }
+  });
+</script>
+
 </body>
 </html>
