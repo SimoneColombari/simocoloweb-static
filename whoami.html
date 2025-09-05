@@ -46,29 +46,24 @@
 
     @media screen and (max-width: 600px) {
       nav {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: flex-start;
+        flex-direction: column;
+        align-items: center;
         padding: 10px 15px;
       }
 
-      nav .left {
-        flex: 1 1 100%;
-        margin-bottom: 10px;
-      }
-
+      nav .left,
       nav .right {
+        flex: none;
         display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
-        gap: 10px;
-        flex: 1 1 100%;
+        justify-content: center;
+        gap: 8px;
       }
 
       nav .right a {
-        flex: 1 1 calc(50% - 10px);
-        text-align: center;
-        font-size: 1em;
+        font-size: 0.95em;
+        margin: 4px;
       }
     }
 
