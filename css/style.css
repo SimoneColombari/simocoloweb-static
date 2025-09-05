@@ -422,3 +422,27 @@ p {
     display: none;
   }
 }
+#translate-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+#translate-button {
+  background-color: #ff6f00;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 10px #ff6f00;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#translate-button:hover {
+  background-color: white;
+  color: #ff6f00;
+  transform: scale(1.05);
+}
