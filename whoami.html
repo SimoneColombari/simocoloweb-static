@@ -10,7 +10,7 @@
     /* 🌐 Barra di navigazione */
     nav {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       background-color: #0a0f2c;
       padding: 15px 30px;
@@ -33,10 +33,6 @@
       color: #ffa726;
     }
 
-    nav .left a {
-      font-size: 1.2em;
-    }
-
     nav .right {
       display: flex;
       flex-wrap: wrap;
@@ -51,10 +47,7 @@
         padding: 10px 15px;
       }
 
-      nav .left,
       nav .right {
-        flex: none;
-        display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
@@ -183,11 +176,7 @@
 </head>
 <body>
   <nav>
-    <div class="left">
-      <a href="index.html">🏠 Home</a>
-    </div>
     <div class="right">
-      <a href="whoami.html">Who Am I</a>
       <a href="progetti.html">Progetti</a>
       <a href="usa.html">USA</a>
       <a href="curriculum.html">Curriculum</a>
