@@ -226,7 +226,8 @@
       <a href="curriculum.html" class="cta-button">Curriculum</a>
     </div>
   </footer>
-  <script type="text/javascript">
+  <!-- Google Translate Widget -->
+<script type="text/javascript">
   function googleTranslateElementInit() {
     new google.translate.TranslateElement({
       pageLanguage: 'it',
@@ -236,16 +237,32 @@
   }
 </script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Pulsante personalizzato per traduzione -->
 <script>
-  // Funzione per forzare la traduzione in inglese
-  document.getElementById('translate-button').addEventListener('click', function () {
-    var select = document.querySelector('.goog-te-combo');
-    if (select) {
-      select.value = 'en';
-      select.dispatchEvent(new Event('change'));
+  function waitForTranslateWidget(callback) {
+    const interval = setInterval(() => {
+      const select = document.querySelector('.goog-te-combo');
+      if (select) {
+        clearInterval(interval);
+        callback(select);
+      }
+    }, 100);
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const button = document.getElementById('translate-button');
+    if (button) {
+      button.addEventListener('click', function () {
+        waitForTranslateWidget(function (select) {
+          select.value = 'en';
+          select.dispatchEvent(new Event('change'));
+        });
+      });
     }
   });
 </script>
+
 
 </body>
 </html>
